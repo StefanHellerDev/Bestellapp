@@ -1,5 +1,5 @@
 body {
-  background-color: #ff8000;   
+  background-color: #ff8000;
 }
 
 header img {
@@ -8,28 +8,36 @@ header img {
 }
 
 main {
-  font-family: 'Raleway';
-  width: 99%;
+  font-family: "Raleway";
+  /* width: 99%; */
   display: flex;
-  justify-content: right;
+  /* justify-content: right; */
 }
 
 .bestellMain {
+  width: calc(100% - 300px);
+  height: 1500px;
   background-color: whitesmoke;
-  flex: 1;
 }
 
 .mainImage {
   height: 100px;
-  background-image: url("./assets/img/main.jpg"); */
+  background-image: url("./assets/img/main.jpg");
   background-size: cover;
   background-position: center;
 }
 
+.basketWrapper {
+  flex-grow: 1;
+  width: 300px;
+}
+
 .basketMain {
+  width: 100%;
+  height: 400px;
+  position: sticky;
+  top: 0;
   background-color: whitesmoke;
-  width: 240px;
-  height: 100vh;
   text-align: center;
   box-shadow: 0 2px 10px 0 rgb(0, 0, 0, 0.3);
 }
@@ -37,4 +45,47 @@ main {
 .rating {
   color: #ff8000;
   padding: 10px 0 10px;
+}
+
+.whereAmI {
+  height: 50px;
+  width: 100%;
+  background-color: rgb(223, 218, 212);
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+
+.whereAmI img {
+  height: 24px;
+}
+
+.mainCourseImage {
+  height: 80px;
+  background-image: url("./assets/img/hauptgericht.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.dishes {
+  width: calc(100% - 16px);
+  border: 1px solid lightgray;
+  margin: 8px;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.dishesImg {
+  /* padding-left: -8px; */
+  /* border: 1px solid lightgray; */
+  
+}
+
+.dishes img {
+  height: 40px;  
+  border: 1px solid lightgray;
+  
+  
 }

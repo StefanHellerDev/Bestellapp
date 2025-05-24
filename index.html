@@ -13,13 +13,11 @@
   <link rel="stylesheet" href="./style.css">
 
   <script src="./scripts/template.js" defer></script>
+  <script src="./scripts/dishes.js" defer></script>
   <script src="./script.js" defer></script>
 </head>
 
-<body>
-
-
-
+<body onload="init()">
   <header>
     <img src="./assets/img/Bestell App- Logo.svg" alt="Logo">
   </header>
@@ -29,29 +27,38 @@
       <div class="mainImage"></div>
       <h2>Pizzeria Roma</h2>
       <div class="rating">Bewertung (4,2 von 5 Sternen)</div>
-      <div>Hauptgerichte Beilagen</div>
-      <div>Bild Hauptgerichte</div>
+      <div class="whereAmI">
+        <img src="./assets/icons/7549123_user_interface_rewind_forward_right_icon_orange.png" alt="Where am I">
+        Hauptgerichte Beilagen
+      </div>
+      <div class="mainCourseImage"></div>
       Hauptgerichte
       <div>
-        <div>
-          Essenstitel <br>
-          Essensbeschreibung <br>
-          Preis
-
+        <div id="dishesList">
+          <div class="dishes">
+            <div>
+              <p>Essenstitel</p>
+              <p>Essensbeschreibung</p>
+              <p>Preis</p>
+            </div>
+            <div class="dishesImg"><img src="./assets/icons/211877_plus_round_icon-orange.png" alt="add dish"></div>
+          </div>
         </div>
         <div>Plus-Zeichen</div>
       </div>
 
     </div>
 
-    <div class="basketMain">
-      <h2>Warenkorb</h2>
-      Wenn ich leer bin, kauf was!
-      <div>Essen 1</div>
-      <div>Essen 2</div>
-      Zwischensumme <br>
-      Lieferkosten <br>
-      Gesamt <br>
+    <div class="basketWrapper">
+      <div class="basketMain">
+        <h2>Warenkorb</h2>
+        Wenn ich leer bin, kauf was!
+        <div>Essen 1</div>
+        <div>Essen 2</div>
+        Zwischensumme <br>
+        Lieferkosten <br>
+        Gesamt <br>
+      </div>
     </div>
   </main>
 
