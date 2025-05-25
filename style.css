@@ -75,17 +75,18 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-}
-
-.dishesImg {
-  /* padding-left: -8px; */
-  /* border: 1px solid lightgray; */
-  
+  position: relative;
 }
 
 .dishes img {
-  height: 40px;  
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 40px;
   border: 1px solid lightgray;
-  
-  
+}
+
+.basketMain h2 {
+  padding: 20px;
+  border: 1px solid lightgray;
 }
