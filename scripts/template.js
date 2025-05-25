@@ -10,3 +10,11 @@ function renderDishesTemplate(dishesList, dishesIndex, dishPrice) {
           </div>
     `;
 }
+
+function renderEmptyBasketTemplate(basketContent) {
+    basketContent.innerHTML = `
+    <div class="emptyBasket">
+          <img src="./assets/icons/622396_bag_shopping_basket_buy_ecommerce_icon.png" alt="shoppoing basket">
+          Wähle leckere Gerichte aus der Karte und bestelle dein Menü.</div>
+    `
+}
