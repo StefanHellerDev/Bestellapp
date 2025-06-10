@@ -1,12 +1,10 @@
 let areAllAmountsZero = true;
 
-
 function init() {
   let dishesList = document.getElementById("dishesList");
   renderDishes(dishesList);
   basket();
 }
-
 
 function renderDishes(dishesList) {
   for (let dishesIndex = 0; dishesIndex < dishes.length; dishesIndex++) {
@@ -18,7 +16,6 @@ function renderDishes(dishesList) {
   }
 }
 
-
 function addAmount(dishesIndex) {
   document
     .getElementById("plus" + dishesIndex)
@@ -29,25 +26,61 @@ function addAmount(dishesIndex) {
       .getElementById("plus" + dishesIndex)
       .setAttribute("src", "./assets/icons/211877_plus_round_icon.png");
   }, 800);
+  basket();
 }
 
+function reduceAmount(dishesIndex) {
+  document
+    .getElementById("plus" + dishesIndex)
+    .setAttribute("src", "./assets/icons/211643_checkmark_round_icon.png");
+  dishes[dishesIndex].amount--;
+  setTimeout(() => {
+    document
+      .getElementById("plus" + dishesIndex)
+      .setAttribute("src", "./assets/icons/211877_plus_round_icon.png");
+  }, 800);
+  basket();
+}
+
+function trashAmount(dishesIndex) {
+  document
+    .getElementById("plus" + dishesIndex)
+    .setAttribute("src", "./assets/icons/211643_checkmark_round_icon.png");
+  dishes[dishesIndex].amount = 0;
+  setTimeout(() => {
+    document
+      .getElementById("plus" + dishesIndex)
+      .setAttribute("src", "./assets/icons/211877_plus_round_icon.png");
+  }, 800);
+  basket();
+}
 
 function basket() {
-  basketContent = document.getElementById("basketContent");  
+  let dishesTotalPrice = 0;
+  let basketContent = document.getElementById("basketContent");
   checkAmounts();
+  basketContent.innerHTML = "";
   if (areAllAmountsZero == true) {
     renderEmptyBasketTemplate(basketContent);
   }
   for (let dishesIndex = 0; dishesIndex < dishes.length; dishesIndex++) {
     if (dishes[dishesIndex].amount != 0) {
-      let basketPrice = dishes[dishesIndex].amount * dishes[dishesIndex].price;
-      basketPrice = basketPrice.toFixed(2);
-      basketPrice = basketPrice.replace(".", ",");
-      renderBasketTemplate(basketContent, dishesIndex, basketPrice);
+      let dishesPrice = dishes[dishesIndex].amount * dishes[dishesIndex].price;
+      dishesTotalPrice = dishesTotalPrice + dishesPrice;
+      dishesPrice = dishesPrice.toFixed(2);
+      dishesPrice = dishesPrice.replace(".", ",");
+      renderBasketTemplate(basketContent, dishesIndex, dishesPrice);
     }
   }
+  let dishesTotalPriceWithShipping = dishesTotalPrice + 5;
+  dishesTotalPrice = dishesTotalPrice.toFixed(2);
+  dishesTotalPrice = dishesTotalPrice.replace(".", ",");
+  dishesTotalPriceWithShipping = dishesTotalPriceWithShipping.toFixed(2);
+  dishesTotalPriceWithShipping = dishesTotalPriceWithShipping.replace(".", ",");
+  if (areAllAmountsZero == false) {
+    renderBasketFooterTemplate(dishesTotalPrice, dishesTotalPriceWithShipping);
+  }
 }
-
 
 function checkAmounts() {
   for (i = 0; i < dishes.length; ++i) {
@@ -58,18 +91,30 @@ function checkAmounts() {
   }
 }
 
-
-function renderBasketTemplate(basketContent, dishesIndex, basketPrice) {
+function renderBasketTemplate(basketContent, dishesIndex, dishesPrice) {
   basketContent.innerHTML += `
     <div class="dishEntryInBasket">
-            <h4>${dishes[dishesIndex].name}</h4>
-            <div class="amountsPrice">
-              <img src="./assets/icons/211863_minus_round_icon.png" alt="amount minus">
-              ${dishes[dishesIndex].amount}x
-              <img src="./assets/icons/211877_plus_round_icon.png" alt="amount plus" onclick="addAmount(${dishesIndex})">
-              ${basketPrice} €
-              <img src="./assets/icons/3643729_bin_delete_garbage_rubbish_trash_icon.png" alt="trash bin">
-            </div>
-          </div>
+      <h4>${dishes[dishesIndex].name}</h4>
+        <div class="amountsPrice">
+          <img src="./assets/icons/211863_minus_round_icon.png" alt="amount minus" onclick="reduceAmount(${dishesIndex})">
+          ${dishes[dishesIndex].amount}x
+          <img src="./assets/icons/211877_plus_round_icon.png" alt="amount plus" onclick="addAmount(${dishesIndex})">
+          ${dishesPrice} €
+          <img src="./assets/icons/3643729_bin_delete_garbage_rubbish_trash_icon.png" alt="trash bin" onclick="trashAmount(${dishesIndex})">
+        </div>
+    </div>
     `;
+}
+
+function renderBasketFooterTemplate(
+  dishesTotalPrice,
+  dishesTotalPriceWithShipping
+) {
+  basketContent.innerHTML += `
+    <div class="BasketFooter">
+      <p>Zwischensumme</p>
+      <p>Lieferkosten</p>
+      <p>Gesamt</p>
+    </div>
+  `;
 }

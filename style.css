@@ -33,7 +33,7 @@ main {
 
 .basketMain {
   width: 100%;
-  height: 400px;
+  /* height: 400px; */
   position: sticky;
   top: 0;
   background-color: whitesmoke;
@@ -121,3 +121,8 @@ main {
   justify-content: space-around;
 }
 
+.BasketFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

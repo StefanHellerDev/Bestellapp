@@ -3,7 +3,7 @@ let dishes = [
     "name": "Pizza Krabben",
     "description": "mit Krabben und Peperoni",
     "price": 9.5,
-    "amount": 1,
+    "amount": 0,
   },
   {
     "name": "Pizza Margherita",
