@@ -77,6 +77,7 @@ function basket() {
   dishesTotalPrice = dishesTotalPrice.replace(".", ",");
   dishesTotalPriceWithShipping = dishesTotalPriceWithShipping.toFixed(2);
   dishesTotalPriceWithShipping = dishesTotalPriceWithShipping.replace(".", ",");
+  checkAmounts();
   if (areAllAmountsZero == false) {
     renderBasketFooterTemplate(dishesTotalPrice, dishesTotalPriceWithShipping);
   }
@@ -87,7 +88,7 @@ function checkAmounts() {
     if (dishes[i].amount !== 0) {
       areAllAmountsZero = false;
       break;
-    }
+    } else {areAllAmountsZero = true}
   }
 }
 
@@ -112,9 +113,12 @@ function renderBasketFooterTemplate(
 ) {
   basketContent.innerHTML += `
     <div class="BasketFooter">
-      <p>Zwischensumme</p>
-      <p>Lieferkosten</p>
-      <p>Gesamt</p>
+      <table>
+        <tr><td class="tdLeft">Zwischensumme</td><td class="tdRight">${dishesTotalPrice} €</td></tr>
+        <tr><td class="tdLeft">Lieferkosten</td><td class="tdRight">5,00 €</td></tr>
+        <tr><td class="tdLeft bold">Gesamt</td><td class="tdRight bold">${dishesTotalPriceWithShipping} €</td></tr>
+      </table>
+      
     </div>
   `;
 }

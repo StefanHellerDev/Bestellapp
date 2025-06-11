@@ -21,6 +21,6 @@ let dishes = [
     "name": "Pizzabrötchen",
     "description": "mit Käse und Knoblauch",
     "price": 5.5,
-    "amount": 0,
+    "amount": 1,
   },
 ];
