@@ -121,8 +121,8 @@ main {
 }
 
 .BasketFooter {
-  border-top: 2px solid rgba(218,208,176,0.5);
-  }
+  border-top: 2px solid rgba(218, 208, 176, 0.5);
+}
 .BasketFooter table {
   width: 100%;
   padding-left: 10px;
@@ -139,4 +139,34 @@ main {
 
 .bold {
   font-weight: bold;
+}
+
+.responsiveFooter {
+  height: 50px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 600px) {
+  .responsiveFooter {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .basketWrapper {
+    display: none;
+  }
+
+  .bestellMain {
+    width: 100%;
+  }
 }
