@@ -88,37 +88,16 @@ function checkAmounts() {
     if (dishes[i].amount !== 0) {
       areAllAmountsZero = false;
       break;
-    } else {areAllAmountsZero = true}
+    } else {
+      areAllAmountsZero = true;
+    }
   }
 }
 
-function renderBasketTemplate(basketContent, dishesIndex, dishesPrice) {
-  basketContent.innerHTML += `
-    <div class="dishEntryInBasket">
-      <h4>${dishes[dishesIndex].name}</h4>
-        <div class="amountsPrice">
-          <img src="./assets/icons/211863_minus_round_icon.png" alt="amount minus" onclick="reduceAmount(${dishesIndex})">
-          ${dishes[dishesIndex].amount}x
-          <img src="./assets/icons/211877_plus_round_icon.png" alt="amount plus" onclick="addAmount(${dishesIndex})">
-          ${dishesPrice} €
-          <img src="./assets/icons/3643729_bin_delete_garbage_rubbish_trash_icon.png" alt="trash bin" onclick="trashAmount(${dishesIndex})">
-        </div>
-    </div>
-    `;
+function overlayBasketOn() {
+  document.getElementById("overlayBasket").style.display = "block";
 }
 
-function renderBasketFooterTemplate(
-  dishesTotalPrice,
-  dishesTotalPriceWithShipping
-) {
-  basketContent.innerHTML += `
-    <div class="BasketFooter">
-      <table>
-        <tr><td class="tdLeft">Zwischensumme</td><td class="tdRight">${dishesTotalPrice} €</td></tr>
-        <tr><td class="tdLeft">Lieferkosten</td><td class="tdRight">5,00 €</td></tr>
-        <tr><td class="tdLeft bold">Gesamt</td><td class="tdRight bold">${dishesTotalPriceWithShipping} €</td></tr>
-      </table>
-      
-    </div>
-  `;
-}
+function overlayBasketOff() {
+  document.getElementById("overlayBasket").style.display = "none";
+} 

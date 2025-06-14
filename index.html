@@ -43,15 +43,17 @@
     <div class="basketWrapper">
       <div class="basketMain">
         <h2>Warenkorb</h2>
-        <div id="basketContent">
-        </div>
+        <p>Ab 50 € Warenwert keine Versandkosten</p>
+        <div id="basketContent"></div>
       </div>
     </div>
   </main>
 
-  <section class="responsiveFooter">
+  <section class="responsiveFooter" onclick="overlayBasketOn()">
     <p>Warenkorb anzeigen</p>
   </section>
+
+  <div id="overlayBasket"></div>
 
   <footer>
     (c) S. Heller
