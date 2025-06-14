@@ -35,6 +35,7 @@ function renderBasketTemplate(basketContent, dishesIndex, dishesPrice) {
 }
 
 function renderBasketFooterTemplate(
+  basketContent,
   dishesTotalPrice,
   dishesTotalPriceWithShipping
 ) {

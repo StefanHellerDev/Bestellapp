@@ -4,6 +4,7 @@ function init() {
   let dishesList = document.getElementById("dishesList");
   renderDishes(dishesList);
   basket();
+  overlayBasket();
 }
 
 function renderDishes(dishesList) {
@@ -27,6 +28,7 @@ function addAmount(dishesIndex) {
       .setAttribute("src", "./assets/icons/211877_plus_round_icon.png");
   }, 800);
   basket();
+  overlayBasket();
 }
 
 function reduceAmount(dishesIndex) {
@@ -40,6 +42,7 @@ function reduceAmount(dishesIndex) {
       .setAttribute("src", "./assets/icons/211877_plus_round_icon.png");
   }, 800);
   basket();
+  overlayBasket();
 }
 
 function trashAmount(dishesIndex) {
@@ -53,6 +56,7 @@ function trashAmount(dishesIndex) {
       .setAttribute("src", "./assets/icons/211877_plus_round_icon.png");
   }, 800);
   basket();
+  overlayBasket();
 }
 
 function basket() {
@@ -79,7 +83,43 @@ function basket() {
   dishesTotalPriceWithShipping = dishesTotalPriceWithShipping.replace(".", ",");
   checkAmounts();
   if (areAllAmountsZero == false) {
-    renderBasketFooterTemplate(dishesTotalPrice, dishesTotalPriceWithShipping);
+    renderBasketFooterTemplate(
+      basketContent,
+      dishesTotalPrice,
+      dishesTotalPriceWithShipping
+    );
+  }
+}
+
+function overlayBasket() {
+  let dishesTotalPrice = 0;
+  let overlayBasketContent = document.getElementById("overlayBasketContent");
+  checkAmounts();
+  overlayBasketContent.innerHTML = "";
+  if (areAllAmountsZero == true) {
+    renderEmptyBasketTemplate(overlayBasketContent);
+  }
+  for (let dishesIndex = 0; dishesIndex < dishes.length; dishesIndex++) {
+    if (dishes[dishesIndex].amount != 0) {
+      let dishesPrice = dishes[dishesIndex].amount * dishes[dishesIndex].price;
+      dishesTotalPrice = dishesTotalPrice + dishesPrice;
+      dishesPrice = dishesPrice.toFixed(2);
+      dishesPrice = dishesPrice.replace(".", ",");
+      renderBasketTemplate(overlayBasketContent, dishesIndex, dishesPrice);
+    }
+  }
+  let dishesTotalPriceWithShipping = dishesTotalPrice + 5;
+  dishesTotalPrice = dishesTotalPrice.toFixed(2);
+  dishesTotalPrice = dishesTotalPrice.replace(".", ",");
+  dishesTotalPriceWithShipping = dishesTotalPriceWithShipping.toFixed(2);
+  dishesTotalPriceWithShipping = dishesTotalPriceWithShipping.replace(".", ",");
+  checkAmounts();
+  if (areAllAmountsZero == false) {
+    renderBasketFooterTemplate(
+      overlayBasketContent,
+      dishesTotalPrice,
+      dishesTotalPriceWithShipping
+    );
   }
 }
 
@@ -95,9 +135,9 @@ function checkAmounts() {
 }
 
 function overlayBasketOn() {
-  document.getElementById("overlayBasket").style.display = "block";
+  document.getElementById("overlayBasket").style.display = "flex";
 }
 
 function overlayBasketOff() {
   document.getElementById("overlayBasket").style.display = "none";
-} 
+}

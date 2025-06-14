@@ -43,7 +43,6 @@
     <div class="basketWrapper">
       <div class="basketMain">
         <h2>Warenkorb</h2>
-        <p>Ab 50 € Warenwert keine Versandkosten</p>
         <div id="basketContent"></div>
       </div>
     </div>
@@ -53,7 +52,12 @@
     <p>Warenkorb anzeigen</p>
   </section>
 
-  <div id="overlayBasket"></div>
+  <div id="overlayBasket">
+    <div class="basketMain">
+      <h2 onclick="overlayBasketOff()">Warenkorb</h2>      
+      <div id="overlayBasketContent"></div>
+    </div>
+  </div>
 
   <footer>
     (c) S. Heller
