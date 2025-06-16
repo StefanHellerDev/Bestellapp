@@ -1,5 +1,7 @@
 body {
   background-color: #ff8000;
+  font-family: "Raleway";
+  font-size: 16px;
 }
 
 header {
@@ -12,8 +14,6 @@ header img {
 }
 
 main {
-  font-family: "Raleway";
-  font-size: 16px;
   display: flex;
 }
 
@@ -54,7 +54,7 @@ main {
 
 .rating {
   color: #ff8000;
-  padding: 10px 0 10px 16px;  
+  padding: 10px 0 10px 16px;
 }
 
 .whereAmI {
@@ -115,7 +115,6 @@ main {
 
 .basketMain h2 {
   padding-top: 20px;
-  /* border: 1px solid lightgray; */
 }
 
 .basketMain p {
@@ -208,8 +207,10 @@ footer {
   width: calc(100% - 300px);
   height: 48px;
   display: flex;
-  align-items: center; 
+  align-items: center;
   justify-content: center;
+  font-weight: 700;
+  background-color: lightgray;
 }
 
 @media (min-width: 769px) {
