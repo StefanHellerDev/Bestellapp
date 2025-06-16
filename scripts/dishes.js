@@ -23,4 +23,10 @@ let dishes = [
     "price": 5.5,
     "amount": 0,
   },
+  {
+    "name": "Döner Kebap",
+    "description": "mit Salat, Schafskäse und Knoblauch",
+    "price": 6,
+    "amount": 0,
+  },
 ];
