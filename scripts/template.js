@@ -46,7 +46,7 @@ function renderBasketFooterTemplate(
         <tr><td class="tdLeft">Lieferkosten</td><td class="tdRight">5,00 €</td></tr>
         <tr><td class="tdLeft bold">Gesamt</td><td class="tdRight bold">${dishesTotalPriceWithShipping} €</td></tr>
       </table>
-      
+      <p class="orderButton" onclick="switchOnOverlay()">Jetzt kostenpflichtig bestellen!</p>
     </div>
   `;
 }

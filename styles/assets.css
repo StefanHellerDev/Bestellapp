@@ -15,3 +15,26 @@
   font-weight: 700;
   src: url("../assets/fonts/raleway-v34-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+
+.orderButton {
+  background-color: #ff8000;
+  border-radius: 30px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-family: Arial;
+  padding: 16px 16px;
+  text-decoration: none;
+  text-shadow: 1px 1px 0px #eb9c12;
+}
+
+.orderButton:hover {
+  background-color: #5cbf2a;
+}
+
+.orderButton:active {
+  position: relative;
+  top: 1px;
+}

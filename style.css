@@ -199,7 +199,7 @@ main {
   right: 0;
   bottom: 0;
   background-color: whitesmoke;
-  z-index: 2;
+  z-index: 0;
   cursor: pointer;
 }
 
@@ -211,6 +211,54 @@ footer {
   justify-content: center;
   font-weight: 700;
   background-color: lightgray;
+}
+
+.overlay {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.dialog {
+  position: absolute;
+  z-index: 2;
+  top: 20%;
+  left: 10%;
+  width: 80%;
+  height: 60%;
+  background-color: rgba(255, 128, 0, 0.9);
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dialog p {
+  color: whitesmoke;
+  font-size: larger;
+  font-weight: 700;
+}
+
+.dialogHeader {
+  width: 80%;
+  position: inherit;
+  top: 4%;
+  left: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: whitesmoke;
+}
+
+.dialogClose {
+  font-size: 36px;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 @media (min-width: 769px) {

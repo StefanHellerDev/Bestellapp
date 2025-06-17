@@ -22,6 +22,15 @@
     <img src="./assets/img/Bestell App- Logo.svg" alt="Logo">
   </header>
 
+  <div id="overlay" class="overlay d_none" onclick="switchOffOverlay()">
+    <div class="dialog" id="dialog" onclick="bubblingPropagation(event)">
+      <div class="dialogHeader">
+        <span class="dialogClose" onclick="switchOffOverlay()">×</span>
+      </div>
+      <p>Test-Bestellung versandt!</p>
+    </div>
+  </div>
+
   <main>
     <div class="bestellMain">
       <div class="mainImage"></div>
@@ -36,7 +45,6 @@
       <div>
         <div id="dishesList"></div>
       </div>
-
     </div>
 
     <div class="basketWrapper">
@@ -45,6 +53,7 @@
         <div id="basketContent"></div>
       </div>
     </div>
+
   </main>
 
   <section class="responsiveFooter" onclick="overlayBasketOn()">
