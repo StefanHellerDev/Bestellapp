@@ -2,6 +2,15 @@ body {
   background-color: #ff8000;
   font-family: "Raleway";
   font-size: 16px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
 header {
@@ -14,13 +23,18 @@ header img {
 }
 
 main {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  width: -webkit-fill-available;
   display: flex;
 }
 
 .bestellMain {
   width: calc(100% - 300px);
-  min-height: 1100px;
+  /* min-height: 1400px; */
   background-color: whitesmoke;
+  max-width: 1440px;
 }
 
 .bestellMain h2 {
@@ -39,7 +53,7 @@ main {
 }
 
 .basketWrapper {
-  flex-grow: 1;
+  /* flex-grow: 1; */
   width: 300px;
 }
 
@@ -204,13 +218,13 @@ main {
 }
 
 footer {
-  width: calc(100% - 300px);
   height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   background-color: lightgray;
+  margin-top: auto;
 }
 
 .overlay {

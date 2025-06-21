@@ -38,3 +38,26 @@
   position: relative;
   top: 1px;
 }
+
+.closeButton {
+  background-color: #ff8000;
+  border-radius: 24px;
+  /* display: inline-block; */
+  cursor: pointer;
+  color: #ffffff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: Arial;
+  padding: 16px 16px;
+  text-decoration: none;
+  /* text-shadow: 1px 1px 0px #eb9c12; */
+}
+
+.closeButton:hover {
+  background-color: #5cbf2a;
+}
+
+.closeButton:active {
+  position: relative;
+  top: 1px;
+}
