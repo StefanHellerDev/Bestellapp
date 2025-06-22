@@ -55,14 +55,14 @@
     </div>
   </main>
 
-  <section class="responsiveFooter" onclick="overlayBasketOn()">
+  <section class="responsiveFooter" onclick="overlayBasketChange('on')">
     <p>Warenkorb anzeigen</p>
   </section>
 
   <div id="overlayBasket">
     <div class="basketMain">
-      <h2 onclick="overlayBasketOff()">Warenkorb</h2>
-      <p class="closeButton" onclick="overlayBasketOff()">Schließen</p>
+      <h2 onclick="overlayBasketChange('off')">Warenkorb</h2>
+      <p class="closeButton" onclick="overlayBasketChange('off')">Schließen</p>
       <div id="overlayBasketContent"></div>
     </div>
   </div>

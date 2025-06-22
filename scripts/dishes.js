@@ -29,4 +29,16 @@ let dishes = [
     "price": 6,
     "amount": 0,
   },
+  {
+    "name": "Dürüm",
+    "description": "mit Salat, Schafskäse und Knoblauch",
+    "price": 7.5,
+    "amount": 0,
+  },
+  {
+    "name": "Türkische Pizza",
+    "description": "mit Hackfleisch",
+    "price": 7.5,
+    "amount": 0,
+  },
 ];

@@ -3,8 +3,8 @@ let areAllAmountsZero = true;
 function init() {
   let dishesList = document.getElementById("dishesList");
   renderDishes(dishesList);
-  basket();
-  overlayBasket();
+  basket("basketContent");
+  basket("overlayBasketContent");
 }
 
 function renderDishes(dishesList) {
@@ -22,8 +22,8 @@ function addAmount(dishesIndex) {
   setTimeout(() => {
     document.getElementById("plus" + dishesIndex).setAttribute("src", "./assets/icons/211877_plus_round_icon.png");
   }, 800);
-  basket();
-  overlayBasket();
+  basket("basketContent");
+  basket("overlayBasketContent");
 }
 
 function reduceAmount(dishesIndex) {
@@ -32,8 +32,8 @@ function reduceAmount(dishesIndex) {
   setTimeout(() => {
     document.getElementById("plus" + dishesIndex).setAttribute("src", "./assets/icons/211877_plus_round_icon.png");
   }, 800);
-  basket();
-  overlayBasket();
+  basket("basketContent");
+  basket("overlayBasketContent");
 }
 
 function trashAmount(dishesIndex) {
@@ -42,13 +42,13 @@ function trashAmount(dishesIndex) {
   setTimeout(() => {
     document.getElementById("plus" + dishesIndex).setAttribute("src", "./assets/icons/211877_plus_round_icon.png");
   }, 800);
-  basket();
-  overlayBasket();
+  basket("basketContent");
+  basket("overlayBasketContent");
 }
 
-function basket() {
+function basket(basketVariable) {
   let dishesTotalPrice = 0;
-  let basketContent = document.getElementById("basketContent");
+  let basketContent = document.getElementById(basketVariable);
   checkAmounts();
   basketContent.innerHTML = "";
   if (areAllAmountsZero == true) {
@@ -82,24 +82,6 @@ function priceFixReplace(price) {
   return price;
 }
 
-function overlayBasket() {
-  let dishesTotalPrice = 0;
-  let overlayBasketContent = document.getElementById("overlayBasketContent");
-  checkAmounts();
-  overlayBasketContent.innerHTML = "";
-  if (areAllAmountsZero == true) {
-    renderEmptyBasketTemplate(overlayBasketContent);
-  }
-  dishesTotalPrice = calculateRenderBasket(dishesTotalPrice, overlayBasketContent);
-  let dishesTotalPriceWithShipping = dishesTotalPrice + 5;
-  dishesTotalPrice = priceFixReplace(dishesTotalPrice);
-  dishesTotalPriceWithShipping = priceFixReplace(dishesTotalPriceWithShipping);
-  checkAmounts();
-  if (areAllAmountsZero == false) {
-    renderBasketFooterTemplate(overlayBasketContent, dishesTotalPrice, dishesTotalPriceWithShipping);
-  }
-}
-
 function checkAmounts() {
   for (i = 0; i < dishes.length; ++i) {
     if (dishes[i].amount !== 0) {
@@ -111,20 +93,20 @@ function checkAmounts() {
   }
 }
 
-function overlayBasketOn() {
-  document.getElementById("overlayBasket").style.display = "flex";
-}
-
-function overlayBasketOff() {
-  document.getElementById("overlayBasket").style.display = "none";
+function overlayBasketChange(param) {
+  if (param == "on") {
+    document.getElementById("overlayBasket").style.display = "flex";
+  } else {
+    document.getElementById("overlayBasket").style.display = "none";
+  }
 }
 
 function switchOnOverlay() {
   for (let dishesIndex = 0; dishesIndex < dishes.length; dishesIndex++) {
     dishes[dishesIndex].amount = 0;
   }
-  basket();
-  overlayBasket();
+  basket("basketContent");
+  basket("overlayBasketContent");
   let overlayRef = document.getElementById("overlay");
   overlayRef.classList.remove("d_none");
 }

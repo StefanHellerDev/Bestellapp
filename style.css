@@ -32,7 +32,7 @@ main {
 
 .bestellMain {
   width: calc(100% - 300px);
-  /* min-height: 1400px; */
+  min-height: calc(100vh - 48px);
   background-color: whitesmoke;
   max-width: 1440px;
 }
